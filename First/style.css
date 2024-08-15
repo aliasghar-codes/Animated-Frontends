@@ -1,0 +1,663 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(265, 72%, 44%, 0.356);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(265, 73%, 32%);
+}
+
+header {
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding: 0 4.5rem;
+    width: 100%;
+    height: 16vh;
+}
+
+.logo {
+    width: 8rem;
+    margin-right: 4rem;
+}
+
+header img {
+    height: 15vh;
+    transition: 0.3s ease;
+}
+
+header img:hover {
+    height: 14vh;
+}
+
+nav ul li a {
+    margin-right: 40px;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: hsl(265, 96%, 82%);
+}
+
+#cursor {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: hsl(265, 72%, 44%);
+    position: fixed;
+    z-index: 990;
+    pointer-events: none;
+}
+
+#blur-cursor {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: hsl(265, 72%, 44%);
+    position: fixed;
+    filter: blur(80px);
+    z-index: 9;
+    pointer-events: none;
+}
+
+video {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+body>.overlay {
+    background-color: rgba(0, 0, 0, 0.37);
+    position: relative;
+    color: rgb(247, 241, 241);
+}
+
+.page-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.page-one h1:before {
+    content: "GAME. EAT. SLEEP.";
+    top: -5px;
+    left: -3px;
+    position: absolute;
+    color: black;
+    -webkit-text-stroke: 1px hsl(265, 80%, 57%);
+    z-index: -1;
+}
+
+.page-one h1 {
+    font-size: 7rem;
+    font-weight: 900;
+    text-align: center;
+    position: relative;
+    letter-spacing: -5px;
+    z-index: 99;
+    user-select: none;
+}
+
+.page-one h3 {
+    margin-bottom: 1rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+    z-index: 99;
+    user-select: none;
+}
+
+.page-one p {
+    user-select: none;
+    width: 40%;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    z-index: 99;
+}
+
+.page-one span {
+    visibility: hidden;
+}
+
+.arrow-down i {
+    z-index: 99;
+    font-weight: 200;
+    border: 1px solid hsl(265, 80%, 57%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    border-radius: 50%;
+    font-size: 4.5rem;
+}
+
+.page-two {
+    min-height: 100vh;
+    padding-top: 5rem;
+}
+
+.scrollbar {
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+    position: relative;
+    z-index: 99;
+}
+
+.scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-in {
+    animation-name: infinite-scrolling;
+    animation-duration: 22s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.scrollbar h4 {
+    user-select: none;
+    font-size: 7rem;
+    display: inline-block;
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+    margin-right: 1.5rem;
+    transition: all 0.3s ease;
+    font-weight: 900;
+}
+
+.scrollbar h4:hover {
+    -webkit-text-stroke: 2px hsl(265, 80%, 57%);
+    color: hsl(265, 80%, 57%);
+}
+
+@keyframes infinite-scrolling {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.about-us {
+    margin-top: 3rem;
+    padding: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    position: relative;
+}
+
+.about-us .content {
+    text-align: center;
+    width: 40%;
+}
+
+.about-us .content h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.about-us .content p {
+    margin-top: 2rem;
+    line-height: 1.5rem;
+}
+
+.about-image {
+    width: 17%;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    height: 30vh;
+}
+
+.about-image img {
+    height: 100%;
+}
+
+.cards-container {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 4.5rem;
+    margin-top: 4rem;
+    background-image: url(./assets/images/cards.png);
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.about-card {
+    position: relative;
+    z-index: 99;
+    height: 65vh;
+    width: 27%;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.about-card:hover {
+    padding: 0;
+}
+
+.about-card::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.521);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.about-card h4 {
+    font-size: 2rem;
+    user-select: none;
+    position: absolute;
+    bottom: 8%;
+    left: 5%;
+
+}
+
+.about-card:hover h4 {
+    display: none;
+}
+
+#about-card1 {
+    background-position: right;
+    background-image: url(./assets/images/card-1.png);
+}
+
+#about-card2 {
+    background-image: url(./assets/images/card-2.jpeg);
+}
+
+#about-card3 {
+    background-image: url(./assets/images/card-3.jpg);
+}
+
+.about-card a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: all .3s linear;
+    opacity: 0;
+}
+
+.about-card:hover a {
+    opacity: 1;
+}
+
+.about-card .card-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(109.6deg, rgb(187, 0, 212) 11.2%, rgb(32, 38, 238) 91.1%);
+    padding: 0 1.5rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.about-card .card-overlay i {
+    color: black;
+    border: 2px solid black;
+    font-weight: 700;
+    font-size: 1.7rem;
+    padding: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -3%;
+    transition: all .3s ease;
+    right: -5%;
+}
+
+.about-card .card-overlay i:hover {
+    background-color: #ffffffdc;
+    color: rgb(187, 0, 212);
+    border: none;
+}
+
+.about-card .card-overlay h3 {
+    color: black;
+    margin-bottom: 2rem;
+    font-size: 1.7rem;
+}
+
+.about-card .card-overlay p {
+    color: black;
+    line-height: 1.8rem;
+}
+
+.page-three {
+    position: relative;
+    z-index: 99;
+}
+
+.page-three .sign-up {
+    background: linear-gradient(109.6deg, rgb(187, 0, 212) 11.2%, rgb(32, 38, 238) 91.1%);
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8rem;
+    padding: 0 .7rem;
+    overflow: hidden;
+}
+
+.page-three .sign-up img {
+    height: 170%;
+    opacity: .3;
+}
+
+.page-three .sign-up h4 {
+    text-transform: uppercase;
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-align: center;
+    color: black;
+}
+
+.third-last {
+    height: 70vh;
+    margin-top: 8rem;
+    padding: 0 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.third-last-left {
+    width: 48%;
+    overflow: hidden;
+}
+
+.third-last-left img {
+    border-radius: 10px;
+    width: 100%;
+    transition: all .5s ease;
+}
+
+.third-last-right {
+    width: 40%;
+}
+
+.third-last-right h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1.6rem;
+}
+
+.third-last-right p {
+    line-height: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.third-last-right a {
+    padding: .9rem 2.7rem;
+    font-weight: 700;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid hsl(265, 80%, 57%);
+    margin-top: 2rem;
+    display: inline-block;
+    transition: all .3s ease;
+    text-transform: uppercase;
+}
+
+.third-last-right a:hover {
+    background-color: hsl(265, 80%, 57%);
+    color: black;
+}
+
+.dots-container {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+}
+
+.dots-container .dot {
+    border-radius: 50%;
+    transition: all .3s ease;
+}
+
+.dots-container .inner-dot {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 100%, 0.808);
+    transition: all .3s ease;
+}
+
+.dots-container a:first-child .dot{
+    border: 2px solid hsl(265, 80%, 57%);
+    padding: .7rem;
+}
+
+.dots-container a:first-child .inner-dot {
+    background-color: hsl(265, 80%, 57%);
+}
+
+.page-fourth{
+    min-height: 100vh;
+}
+.second-last{
+    padding: 0 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+    position: relative;
+    z-index: 99;
+    height: 70vh;
+}
+.second-last p{
+    width: 65%;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.second-last span{
+    font-family: gilroy;
+    font-size: 9rem;
+    font-weight: 900;
+    user-select: none;
+    color: hsl(265, 80%, 57%);
+    position: absolute;
+}
+.second-last span#top{
+    top: -3%;
+    left: 5%;
+}
+.second-last span#bottom{
+    bottom: -3%;
+    right: 5%;
+}
+.last{
+    margin: 5rem 0;
+    padding: 0 4.5rem;
+    position: relative;
+    z-index: 99;
+}
+.last h2{
+    font-size: 4.5rem;
+    text-align: center;
+    -webkit-text-stroke: 1px white;
+    color: black;
+    z-index: -1;
+    position: absolute;
+    bottom: 12vh;
+    left: 8%;
+    transition: all .3s ease;
+}
+.last-container{
+    display: flex;
+    justify-content: space-between;
+}
+.last-container a{
+    display: block;
+    width: 100%;
+}
+.last-card{
+    width: 31.5%;
+    height: 20vh;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+.last-card h3{
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    line-height: 20vh;
+    background-color: hsl(265, 80%, 57%);
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 1.5rem;
+    transition: all .5s ease;
+    color: black;
+}
+#change-stroke{
+    -webkit-text-stroke: 1px hsl(265, 80%, 57%);
+}
+.last-card:hover h3{
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.712);
+    background: transparent;
+    color: white;
+}
+#last-card-1{
+    background-image: url(./assets/images/last-card-1.jpg);
+}
+#last-card-2{
+    background-image: url(./assets/images/last-card-2.jpg);
+}
+#last-card-3{
+    background-image: url(./assets/images/last-card-3.jpg);
+}
+footer{
+    height: 55vh;
+    padding: 5rem 4.5rem 2rem 4.5rem;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgb(187, 0, 212) 11.2%, rgb(32, 38, 238) 91.1%);
+    color: black;
+    position: relative;
+    z-index: 99;
+    margin-top: 5rem;
+}
+.footer-top a{
+    color: black;
+    font-weight: 800;
+    transition: all .3s ease;
+}
+.footer-top-second a, .footer-top-third a, .footer-top-fourth a{
+    font-size: 1.3rem;
+    display: block;
+}
+footer a:hover{
+    color: white;
+}
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-top .logo{
+    height: 110px;
+}
+.footer-top-first img{
+    width: 100%;
+    transition: all .3s ease;
+}
+.footer-top-first img:hover{
+    width: 90%;
+}
+.footer-top-first{
+    width: 12%;
+}
+.footer-top-first .socials i{
+    font-size: 2rem;
+    margin-right: .5rem;
+}
+.footer-bottom a{
+    color: black;
+    transition: all .3s ease;
+}
+.footer-bottom a:hover{
+    color: white;
+}
+.footer-bottom{
+    width: 90%;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-bottom-left{
+    display: flex;
+    align-items: center;
+}
+.footer-bottom-left span{
+    margin: 0 1rem;
+}
